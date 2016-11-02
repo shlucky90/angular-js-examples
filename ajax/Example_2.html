@@ -1,0 +1,52 @@
+<html>
+   <head>
+      <title>Angular JS Ajax</title>
+      <script src = "../js/angular.min.js"></script>
+      <style>
+         table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+         }
+         
+         table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+         }
+         
+         table tr:nth-child(even) {
+            background-color: #ffffff;
+         }
+      </style>
+      
+   </head>
+   <body>
+      <h2>AngularJS Ajax</h2>
+      <div ng-app = "myApp" ng-controller = "studentController">
+      
+         <table>
+            <tr>
+               <th>Name</th>
+               <th>Roll No</th>
+               <th>Percentage</th>
+            </tr>
+         
+            <tr ng-repeat = "student in students">
+               <td>{{ student.Name }}</td>
+               <td>{{ student.RollNo }}</td>
+               <td>{{ student.Percentage }}</td>
+            </tr>
+         </table>
+      </div>
+
+      <script>
+         var app = angular.module('myApp', []);
+         app.controller('studentController', function($scope, $http) {
+            var url = "http://localhost/practice/AJS/ajax/data.txt";
+            
+            $http.get(url).success(function (response) {
+               $scope.students = response;
+            });
+         });
+      </script>
+   </body>
+</html>

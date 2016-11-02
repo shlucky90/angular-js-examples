@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+   
+   <head>
+      <title>AngularJS MVC Architecture</title>
+      <script src = "js/angular.min.js"></script>
+   </head>
+   
+   <body ng-app = "myapp">
+      
+      <div ng-controller = "HelloController" >
+         <h2>Welcome {{helloTo.title}} to the world of Tutorialspoint with {{helloTo.subtitle}} !</h2>
+      </div>
+      
+      <script>
+         angular.module("myapp", [])
+         
+         .controller("HelloController", function($scope) {
+            $scope.helloTo = {};
+            $scope.helloTo.title = "Shashank Shekhar";
+            $scope.helloTo.subtitle = "AngularJS";
+         });
+      </script>
+      
+   </body>
+</html>

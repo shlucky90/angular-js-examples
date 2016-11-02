@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+   
+   <head>
+      <title>AngularJS ng-init & ng-repeat</title>
+      <script src = "js/angular.min.js"></script>
+   </head>
+   
+   <body>
+      
+      <div ng-app = "" ng-init = "countries = [{locale:'en-US',name:'United States'}, {locale:'en-GB',name:'United Kingdom'}, {locale:'en-FR',name:'France'}]">
+         <h2>List of Countries with locale:</h2>
+         
+         <ol>
+            <li ng-repeat = "country in countries">
+               {{ 'Locale: ' + country.locale + ', Country: ' + country.name}}
+            </li>
+         </ol>
+
+         <ol>
+            <li ng-repeat = "country in countries">
+               <b>Locale:</b> {{country.locale}}, <b>Country:</b> {{country.name}}
+            </li>
+         </ol>
+
+         <ol>
+            <li ng-repeat = "country in countries">
+               <b>Locale:</b> <span ng-bind = "country.locale"></span>, <b>Country:</b> <span ng-bind = "country.name"></span>
+            </li>
+         </ol>
+         
+      </div>
+      
+   </body>
+</html>
